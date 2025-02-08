@@ -42,3 +42,7 @@ models:
       +materialized: table
     staging:
       +materialized: view
+    raw:
+      +schema: raw
+      +materialized: view
+  
