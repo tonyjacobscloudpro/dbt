@@ -2,8 +2,15 @@ version: 2
 
 sources:
   - name: jaffle_shop
-    database: dbt-tutorial      # Your Google Cloud project (or database) name
-    schema: jaffle_shop         # Your dataset name in BigQuery
+    database: jaffle_shop_dw
+    schema: dbt_tjacobs_raw # Your dataset name in BigQuery
     tables:
       - name: customers
         description: "Contains customer records for the jaffle_shop sample project"
+      - name: orders
+        description: "Contains orders records for the jaffle_shop sample project"
+
+  - name: stripe
+    tables:
+      - name: payments
+        description: "Contains customer payment records for the jaffle_shop sample project"
