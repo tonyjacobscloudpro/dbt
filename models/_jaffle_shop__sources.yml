@@ -2,15 +2,16 @@ version: 2
 
 sources:
   - name: jaffle_shop
-    database: jaffle_shop_dw
+    database: jaffle-shop-dw
     schema: dbt_tjacobs_raw # Your dataset name in BigQuery
     tables:
-      - name: customers
+      - name: raw_jaffle_shop_customers
         description: "Contains customer records for the jaffle_shop sample project"
-      - name: orders
+      - name: raw_jaffle_shop_orders
         description: "Contains orders records for the jaffle_shop sample project"
 
   - name: stripe
+    schema: dbt_tjacobs_raw # Your dataset name in BigQuery
     tables:
-      - name: payments
+      - name: raw_stripe_payments
         description: "Contains customer payment records for the jaffle_shop sample project"
