@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: dbt-tutorial      # Your Google Cloud project (or database) name
+    schema: jaffle_shop         # Your dataset name in BigQuery
+    tables:
+      - name: customers
+        description: "Contains customer records for the jaffle_shop sample project"
