@@ -1,5 +1,17 @@
-select id as order_id,
+with orders as (
+    select *
+    from {{ source('jaffle_shop', 'raw_jaffle_shop_orders') }}
+),
+transformed as (
+    select 
+        id as order_id,
         user_id as customer_id,
         order_date,
-        status
-from {{ source('jaffle_shop', 'raw_jaffle_shop_orders') }}
+        status as order_status,
+        row_number() over (
+            partition by user_id 
+            order by order_date, id
+        ) as user_order_seq
+    from orders
+)
+select * from transformed
